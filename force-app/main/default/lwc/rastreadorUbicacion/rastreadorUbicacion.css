@@ -1,0 +1,41 @@
+.container {
+    padding: 1rem;
+}
+
+.layout-horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem; /* Espacio entre mapa y tabla */
+    align-items: flex-start;
+}
+
+.map-container {
+    flex: 1 1 0;
+    min-width: 300px;
+}
+
+.leaflet-map {
+    width: 100%;
+    height: 400px;
+    min-height: 300px;
+    border-radius: 8px;
+    background: #f4f6f9;
+}
+
+.user-table {
+    flex: 0 0 400px; /* Ancho fijo para la tabla */
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.slds-table {
+    width: 100%;
+    table-layout: auto;
+}
+.ubicacion-col {
+    max-width: 120px;   /* Ajusta este valor según lo que necesites */
+    width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

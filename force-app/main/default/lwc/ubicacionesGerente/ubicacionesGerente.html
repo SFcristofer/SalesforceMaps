@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title="Ubicaciones de Vendedores" icon-name="standard:location">
+        <div class="slds-grid slds-wrap">
+            <!-- Tabla a la izquierda -->
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-datatable
+                    key-field="id"
+                    data={vendedores}
+                    columns={columns}
+                    onrowaction={handleRowAction}
+                    hide-checkbox-column
+                ></lightning-datatable>
+            </div>
+
+            <!-- Mapa a la derecha -->
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-map
+                    map-markers={mapMarkers}
+                    center={center}
+                    zoom-level="12"
+                    markers-title="Vendedores"
+                ></lightning-map>
+            </div>
+        </div>
+    </lightning-card>
+</template>

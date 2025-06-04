@@ -1,0 +1,54 @@
+<template>
+    <lightning-card title="Ubicaciones de Vendedores">
+        <div class="container">
+            <!-- Layout principal: mapa a la izquierda, tabla a la derecha -->
+            <div class="layout-horizontal">
+                
+                <!-- Contenedor del mapa (izquierda) -->
+                <section class="map-container" aria-label="Mapa de ubicaciones" >
+                    <div class="leaflet-map" lwc:dom="manual"></div>
+                </section>
+
+                <!-- Tabla de usuarios conectados (derecha) -->
+                <section class="user-table" aria-label="Usuarios conectados">
+                    <h2 class="section-title">Usuarios Conectados</h2>
+                    <template if:true={usuarios}>
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                            <thead>
+                                <tr class="slds-line-height_reset">
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Nombre">Nombre</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="ubicacion-col" title="Última Ubicación">Última Ubicación</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Fecha">Fecha</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={usuarios} for:item="usuario">
+                                    <tr key={usuario.id}>
+                                        <td>
+                                            <div class="slds-truncate" title={usuario.nombre}>{usuario.nombre}</div>
+                                        </td>
+                                        <td>
+                                            <div class="slds-truncate" title={usuario.ubicacion}>{usuario.ubicacion}</div>
+                                        </td>
+                                        <td>
+                                            <div class="slds-truncate" title={usuario.fecha}>{usuario.fecha}</div>
+                                        </td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </template>
+                    <template if:false={usuarios}>
+                        <p>No hay usuarios conectados aún.</p>
+                    </template>
+                </section>
+            </div>
+        </div>
+    </lightning-card>
+</template>
