@@ -100,13 +100,13 @@ export default class UbicacionRastreadorGerente extends LightningElement {
             fecha: u.fecha
         }));
 
-        // Centrar el mapa en la posición promedio
+        /* // Centrar el mapa en la posición promedio
         const allCoords = Array.from(this.usuariosMapa.values()).map(u => u.marker.getLatLng());
         if (allCoords.length > 0) {
             const avgLat = allCoords.reduce((sum, c) => sum + c.lat, 0) / allCoords.length;
             const avgLon = allCoords.reduce((sum, c) => sum + c.lng, 0) / allCoords.length;
             this.map.setView([avgLat, avgLon], 10);
-        }
+        } */
     }
 
     handleUnsubscribe() {
